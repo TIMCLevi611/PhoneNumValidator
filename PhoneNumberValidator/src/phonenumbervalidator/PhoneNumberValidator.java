@@ -4,6 +4,9 @@
  */
 package phonenumbervalidator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  *
  * @author lsnyder
@@ -13,8 +16,14 @@ public class PhoneNumberValidator {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) 
+    {
+        Pattern p = Pattern.compile(".?([0-9]{3})[-).].*([0-9]{3})[-.]([0-9]{4})");
+        String[] phoneNumbers = new String[] {"(419)123-4567", "419.123.4567", "(419) 123-4567", "419-123-4567",
+                                              "419_123_4567", "(419)123-456", "4191234567", "419123456"};
+        
+        PhoneNumberValidation validator = new PhoneNumberValidation();
+        
+        validator.ValidateNumber(phoneNumbers, p);
     }
-    
 }
