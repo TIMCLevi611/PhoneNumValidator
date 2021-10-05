@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author lsnyder
+ * @author Levi Snyder
  */
 public class PhoneNumberValidator {
 
@@ -18,12 +18,11 @@ public class PhoneNumberValidator {
      */
     public static void main(String[] args) 
     {
-        Pattern p = Pattern.compile(".?([0-9]{3})[-).].*([0-9]{3})[-.]([0-9]{4})");
+        Pattern p = Pattern.compile(".?([0-9]{3})[-).].*([0-9]{3})[-.]([0-9]{4})"); //Pattern to check if the numbers are in proper format
         String[] phoneNumbers = new String[] {"(419)123-4567", "419.123.4567", "(419) 123-4567", "419-123-4567",
                                               "419_123_4567", "(419)123-456", "4191234567", "419123456"};
+        PhoneNumberValidation validator = new PhoneNumberValidation(); 
         
-        PhoneNumberValidation validator = new PhoneNumberValidation();
-        
-        validator.ValidateNumber(phoneNumbers, p);
+        validator.ValidateNumber(phoneNumbers, p); //Starts the validation process
     }
 }
